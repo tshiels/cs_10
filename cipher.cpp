@@ -27,7 +27,9 @@ int main ()
     cout << "What is the method (encryption or decryption)? "; //asks method
     cin >> userMethod;
     cout << endl;
-    if (!((userMethod == "encryption") || (userMethod == "decryption"))) {
+    
+    if (!((userMethod == "encryption") || (userMethod == "decryption"))) 
+    {
         cout << "Error: invalid method choice." << endl;
         return 0;
     }
@@ -36,16 +38,23 @@ int main ()
     cout << "What is the translation map (type 'default' to use default): ";
     cin >> userMap;
     cout << endl;
-    if (userMap == "default") {
+    
+    if (userMap == "default") 
+    {
         userMap = "zyxwvutsrqponmlkjihgfedcba";
     }
-    else if (userMap.size() != 26) {
+    else if (userMap.size() != 26) 
+    {
         cout << "Error: invalid translation map size." << endl;
         return 0;
     }
-    for (i = 0; i < userMap.size(); ++i) {
-        if (!((userMap.at(i) >= 'a') && (userMap.at(i) <= 'z'))) {
-            if (userMethod == "encryption") {
+    
+    for (i = 0; i < userMap.size(); ++i) 
+    {
+        if (!((userMap.at(i) >= 'a') && (userMap.at(i) <= 'z'))) 
+        {
+            if (userMethod == "encryption") 
+            {
                 cout << "Error: encryption cannot be performed." << endl;
             }
             return 0;
@@ -57,12 +66,16 @@ int main ()
     cin >> userWord;
     cout << endl;
     
-    for (i = 0; i < userWord.size(); ++i) {
-        if (!((userWord.at(i) >= 'a') && (userWord.at(i) <= 'z'))) {
-            if (userMethod == "encryption") {
+    for (i = 0; i < userWord.size(); ++i) 
+    {
+        if (!((userWord.at(i) >= 'a') && (userWord.at(i) <= 'z'))) 
+        {
+            if (userMethod == "encryption") 
+            {
                 cout << "Error: encryption cannot be performed." << endl;
             }
-            else if (userMethod == "decryption") {
+            else if (userMethod == "decryption") 
+            {
                 cout << "Error: decryption cannot be performed." << endl;
             }
             return 0;
@@ -71,19 +84,25 @@ int main ()
     
     alphaMap = "abcdefghijklmnopqrstuvwxyz";
     
-    if (userMethod == "encryption") {
-        for (i = 0; i < userWord.size(); ++i) {
+    if (userMethod == "encryption") 
+    {
+        for (i = 0; i < userWord.size(); ++i) 
+        {
             userWord.at(i) = userMap.at(25 - ('z' - userWord.at(i)));
         }
         cout << "Encrypted word: " << userWord << endl;
     }
-    else if (userMethod == "decryption") {
-        if (userMap == "default") {
+    else if (userMethod == "decryption") 
+    {
+        if (userMap == "default") 
+        {
             userMap = "abcdefghijklmnopqrstuvwxyz";
         }
-        for (i = 0; i < userWord.size(); ++i) {
+        for (i = 0; i < userWord.size(); ++i) 
+        {
             // userWord.at(i) = userMap.at(25 - ('z' - userWord.at(i)));
-            if(userMap.find(userWord.at(i)) == string::npos){
+            if(userMap.find(userWord.at(i)) == string::npos)
+            {
                 cout << "Error: decryption cannot be performed." <<endl;
                 return 0;                
             }
